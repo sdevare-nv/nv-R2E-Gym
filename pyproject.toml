@@ -47,3 +47,9 @@ readme = "README.md"
 dev = [
     "ipykernel>=6.29.5",
 ]
+
+# Override any inherited [tool.uv].exclude-dependencies from an enclosing
+# project (e.g. Gym-opencode's root pyproject.toml excludes cryptography/cffi
+# to slim mlflow, but R2E-Gym genuinely needs them via kubernetes→google-auth).
+[tool.uv]
+exclude-dependencies = []
